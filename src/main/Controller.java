@@ -142,11 +142,11 @@ public class Controller {
         if (hotelFind != null) {
             hotels = hotels.stream().filter(h -> h.getHotelName().equals(hotelFind)).collect(Collectors.toList());
         }
-
+        List<Room> rooms;
         if (price != 0) {
             int finalPrice = price;
             for (Hotel hotel : hotels) {
-                List<Room> rooms = hotel.getRooms();
+                rooms = hotel.getRooms();
                 rooms = rooms.stream().filter(r -> r.getPrice() < finalPrice).collect(Collectors.toList());
                 hotel.setRooms(rooms);
             }
@@ -155,7 +155,7 @@ public class Controller {
         if (person > 0) {
             int finalPerson = person;
             for (Hotel hotel : hotels) {
-                List<Room> rooms = hotel.getRooms();
+                rooms = hotel.getRooms();
                 rooms = rooms.stream().filter(r -> r.getPerson() == finalPerson).collect(Collectors.toList());
                 hotel.setRooms(rooms);
             }
