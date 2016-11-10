@@ -169,28 +169,7 @@ public class Controller {
                 System.out.println(room);
             }
         }
-     /*   Room findRooms = new Room(person, price);
-
-        String text = "";
-
-        for (Hotel hotel : hotels) {
-            System.out.println("\n" + hotel);
-            if (person != 0 || price != 0) {
-                if (hotel.getRooms() != null) {
-                    for (Room room : hotel.getRooms()) {
-                        if (room.equals(findRooms)) {
-                            System.out.println("   " + room);
-                        }
-                    }
-                } else {
-                    System.out.println("\nThere is no information about the rooms ");
-                }
-            } else {
-                text = "All info";
-                hotel.getRooms().forEach(room -> System.out.println("   " + room));
-            }
-        }*/
-
+   
         System.out.println("\n Search options || " // + text
                 + "\nCity:  " + params.get("City")
                 + "\nHotel: " + params.get("Hotel")
