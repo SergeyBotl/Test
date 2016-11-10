@@ -1,6 +1,7 @@
 package entity;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 public class Hotel {
 
@@ -35,6 +36,10 @@ public class Hotel {
         return rooms;
     }
 
+    public void setRooms(List<Room> rooms) {
+        this.rooms = rooms;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -65,4 +70,5 @@ public class Hotel {
                 ", All rooms=" + rooms.size() +
                 ", Reserved=" + rooms.stream().filter(r -> r.getUserReservedId()!= -1).count();
     }
+
 }

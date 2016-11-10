@@ -17,7 +17,7 @@ public class Main {
 
      /*   c.registerUser(new User("Sergey", "1111"));
         c.registerUser(new User("Nazar", "2222"));
-        c.registerUser(new User("Taras", "3333"));*/
+        c.registerUser(new User("Taras", "3333"));
         User user1 = new User("Egor", "4444");
         User user2 = new User("Mariya", "4444");
         User user3 = new User("ew", "4444");
@@ -35,14 +35,14 @@ public class Main {
 
         userDAO.delete(user1);
         userDAO.delete(user2);
-        userDAO.delete(user3);
+        userDAO.delete(user3);*/
 
 
         Map<String, String> map = new HashMap<>();
         map.put("City", "Lviv");
        // map.put("Hotel", "Plasa");
-        map.put("MaxPrice", "300");
-       // map.put("Person", "3");
+        map.put("MaxPrice", "500");
+        map.put("Person", "3");
         c.findRoom(map);
 
 

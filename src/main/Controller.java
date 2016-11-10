@@ -5,6 +5,7 @@ import entity.*;
 
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -142,7 +143,33 @@ public class Controller {
         if (hotelFind != null) {
             hotels = hotels.stream().filter(h -> h.getHotelName().equals(hotelFind)).collect(Collectors.toList());
         }
-        Room findRooms = new Room(person, price);
+
+        if (price != 0) {
+            int finalPrice = price;
+            for (Hotel hotel : hotels) {
+                List<Room> rooms = hotel.getRooms();
+                rooms = rooms.stream().filter(r -> r.getPrice() < finalPrice).collect(Collectors.toList());
+                hotel.setRooms(rooms);
+            }
+        }
+
+        if (person > 0) {
+            int finalPerson = person;
+            for (Hotel hotel : hotels) {
+                List<Room> rooms = hotel.getRooms();
+                rooms = rooms.stream().filter(r -> r.getPerson() == finalPerson).collect(Collectors.toList());
+                hotel.setRooms(rooms);
+            }
+
+        }
+
+        for (Hotel hotel : hotels) {
+            System.out.println(hotel);
+            for (Room room : hotel.getRooms()) {
+                System.out.println(room);
+            }
+        }
+     /*   Room findRooms = new Room(person, price);
 
         String text = "";
 
@@ -162,9 +189,9 @@ public class Controller {
                 text = "All info";
                 hotel.getRooms().forEach(room -> System.out.println("   " + room));
             }
-        }
+        }*/
 
-        System.out.println("\n Search options || " + text
+        System.out.println("\n Search options || " // + text
                 + "\nCity:  " + params.get("City")
                 + "\nHotel: " + params.get("Hotel")
                 + "\nMaxPrice: " + price
