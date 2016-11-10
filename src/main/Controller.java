@@ -120,8 +120,7 @@ public class Controller {
 
     Collection<Hotel> findRoom(Map<String, String> params) {
         System.out.println("\n  Search rooms in the parameters");
-        int person;
-        int price;
+        int person, price;
         Function<String, Integer> toInteger = Integer::valueOf;
         try {
             person = toInteger.apply(params.get("Person"));
@@ -162,15 +161,16 @@ public class Controller {
             }
 
         }
-
+        String text = "";
+        if (price == 0 && person == 0) text = "Print all rooms";
         for (Hotel hotel : hotels) {
             System.out.println(hotel);
             for (Room room : hotel.getRooms()) {
-                System.out.println(room);
+                System.out.println("   " + room);
             }
         }
-   
-        System.out.println("\n Search options || " // + text
+
+        System.out.println("\n Search options || " + text
                 + "\nCity:  " + params.get("City")
                 + "\nHotel: " + params.get("Hotel")
                 + "\nMaxPrice: " + price
